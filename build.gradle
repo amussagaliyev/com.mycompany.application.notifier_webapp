@@ -1,0 +1,29 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+group = 'com.mycompany.application'
+version = '2.0-SNAPSHOT'
+
+description = """notifier_webapp"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.mycompany.config', name: 'webapp_config', version:'2.0-SNAPSHOT'
+    compile group: 'com.mycompany.bdk', name: 'bdk_product_review_queue', version:'2.0-SNAPSHOT'
+}
+
+publishing {
+	publications {
+		mavenLocal(MavenPublication) {
+			from components.java
+		}
+	}
+}

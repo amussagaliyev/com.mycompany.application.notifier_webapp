@@ -1,0 +1,2 @@
+rootProject.name = 'notifier_webapp'
+enableFeaturePreview('STABLE_PUBLISHING')
