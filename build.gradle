@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'war'
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
 
@@ -23,7 +24,11 @@ dependencies {
 publishing {
 	publications {
 		mavenLocal(MavenPublication) {
-			from components.java
+			from components.web
 		}
 	}
+}
+
+war {
+	archiveName = project.name + "-" + project.version + ".war"
 }
